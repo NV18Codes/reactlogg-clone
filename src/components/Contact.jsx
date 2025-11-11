@@ -13,7 +13,7 @@ export const Contact = () => {
     {
       icon: Phone,
       title: "Phone & Fax",
-      content: "Tel: +971 4 242 4920 | Fax: +971 4 242 4917",
+      content: "Tel: +971 4 242 49201 | Fax: +971 4 242 4917",
     },
     {
       icon: Mail,
