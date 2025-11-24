@@ -1,4 +1,4 @@
-import { Building2, Award, Handshake } from "lucide-react";
+import { Building2, Trophy, Globe } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -11,19 +11,22 @@ const milestones = [
     year: "2015",
     title: "Octalpha founded",
     description: "Launched in Dubai with a mission to simplify enterprise technology transformation.",
-    icon: <Building2 className="h-6 w-6" />,
+    // Kept Building2, but added 'text-red-500' for branding
+    icon: <Building2 className="h-6 w-6 text-red-500" />,
   },
   {
     year: "2018",
     title: "Regional expansion",
     description: "Extended our footprint across the GCC, delivering complex infrastructure programs.",
-    icon: <Handshake className="h-6 w-6" />,
+    // CHANGED: Handshake -> Globe (Better represents 'Expansion')
+    icon: <Globe className="h-6 w-6 text-red-500" />,
   },
   {
     year: "2022",
     title: "Global recognition",
     description: "Recognised by strategic partners and clients for excellence in cybersecurity and managed services.",
-    icon: <Award className="h-6 w-6" />,
+    // CHANGED: Award -> Trophy (More distinct visual)
+    icon: <Trophy className="h-6 w-6 text-red-500" />,
   },
 ];
 
@@ -42,9 +45,9 @@ const About = () => {
               </p>
               <div className="grid sm:grid-cols-3 gap-6 pt-4">
                 {[
-                  { label: "Happy Clients", value: "300" },
-                  { label: "Finished Projects", value: "200" },
-                  { label: "Vendors", value: "50" },
+                  { label: "Happy Clients", value: "300+" },
+                  { label: "Finished Projects", value: "200+" },
+                  { label: "Global Partners", value: "50+" },
                 ].map((item) => (
                   <div key={item.label} className="rounded-2xl border border-border bg-card/60 px-6 py-5 text-center">
                     <p className="text-3xl font-bold text-foreground">{item.value}</p>
@@ -116,7 +119,8 @@ const About = () => {
                 <AnimatedSection key={milestone.year} delay={index * 0.1} direction="up">
                   <Card className="h-full p-8 bg-card/80 border-border/70 hover:shadow-xl transition-all">
                     <div className="flex items-center gap-4 mb-4">
-                      <div className="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center">
+                      {/* Updated background color to red tint to match icon */}
+                      <div className="w-12 h-12 rounded-full bg-red-500/10 flex items-center justify-center">
                         {milestone.icon}
                       </div>
                       <span className="text-sm uppercase tracking-wider text-muted-foreground">{milestone.year}</span>
@@ -135,4 +139,3 @@ const About = () => {
 };
 
 export default About;
-

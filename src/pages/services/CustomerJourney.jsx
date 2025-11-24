@@ -86,10 +86,12 @@ const CustomerJourney = () => {
                 {phases.map((phase, index) => {
                   const Icon = phase.icon;
                   return (
-                    <AnimatedSection key={phase.title} delay={index * 0.05}>
-                      <Card className="p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                    // CHANGED: Added h-full
+                    <AnimatedSection key={phase.title} delay={index * 0.05} className="h-full">
+                      {/* CHANGED: Added h-full flex flex-col */}
+                      <Card className="h-full flex flex-col p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="flex items-start gap-4 mb-6">
-                          <div className="p-3 bg-gradient-primary rounded-lg shadow-md">
+                          <div className="p-3 bg-gradient-primary rounded-lg shadow-md shrink-0">
                             <Icon className="h-8 w-8 text-primary-foreground" />
                           </div>
                           <div>
@@ -97,11 +99,12 @@ const CustomerJourney = () => {
                             <h3 className="text-2xl font-bold text-foreground">{phase.title}</h3>
                           </div>
                         </div>
-                        <p className="text-muted-foreground mb-6">{phase.description}</p>
+                        {/* CHANGED: Added flex-grow */}
+                        <p className="text-muted-foreground mb-6 flex-grow">{phase.description}</p>
                         <ul className="space-y-2">
                           {phase.steps.map((step) => (
                             <li key={step} className="flex items-center gap-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full" />
+                              <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0" />
                               <span className="text-sm text-muted-foreground">{step}</span>
                             </li>
                           ))}
@@ -121,13 +124,16 @@ const CustomerJourney = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <AnimatedSection key={service.title} delay={index * 0.05}>
-                      <Card className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md">
+                    // CHANGED: Added h-full
+                    <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
+                      {/* CHANGED: Added h-full flex flex-col */}
+                      <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                        {/* CHANGED: Added flex-grow */}
+                        <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                       </Card>
                     </AnimatedSection>
                   );

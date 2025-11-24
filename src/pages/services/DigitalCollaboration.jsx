@@ -82,13 +82,16 @@ const DigitalCollaboration = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <AnimatedSection key={service.title} delay={index * 0.05}>
-                      <Card className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md">
+                    // CHANGED: Added h-full
+                    <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
+                      {/* CHANGED: Added h-full flex flex-col */}
+                      <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                        {/* CHANGED: Added flex-grow */}
+                        <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                       </Card>
                     </AnimatedSection>
                   );

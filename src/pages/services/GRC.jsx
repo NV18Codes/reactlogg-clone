@@ -79,13 +79,16 @@ const GRC = () => {
                 {pillars.map((pillar, index) => {
                   const Icon = pillar.icon;
                   return (
-                    <AnimatedSection key={pillar.title} delay={index * 0.05}>
-                      <Card className="p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md">
+                    // CHANGED: Added className="h-full" to wrapper
+                    <AnimatedSection key={pillar.title} delay={index * 0.05} className="h-full">
+                      {/* CHANGED: Added h-full flex flex-col to Card */}
+                      <Card className="h-full flex flex-col p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-2xl font-bold text-foreground mb-4">{pillar.title}</h3>
-                        <p className="text-muted-foreground mb-6">{pillar.description}</p>
+                        {/* CHANGED: Added flex-grow to description to align bottom content */}
+                        <p className="text-muted-foreground mb-6 flex-grow">{pillar.description}</p>
                         <div className="space-y-2">
                           {pillar.benefits.map((benefit) => (
                             <div key={benefit} className="flex items-start gap-2">

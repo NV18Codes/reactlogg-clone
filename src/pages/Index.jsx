@@ -19,7 +19,7 @@ const Index = () => {
       title: "Personalized Service",
       description:
         "Lean, expert-driven teams dedicated to tailoring every engagement around your business outcomes.",
-      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=640&q=80",
+      image: "/public/Img/Index/Personalised_Service.jpg",
     },
     {
       title: "Cloud Solutions",
@@ -37,10 +37,10 @@ const Index = () => {
 
   const successStories = [
     {
-      title: "Retail Enterprise",
+      title: "IT Enterprise",
       description:
         "Built the HQ data center for 160+ stores with DR sites, unified communications, virtualization, backup and DR, WLAN, Exchange Server, UPS/EMS, and EDR—supported through a 5-year AMC.",
-      image: "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=720&q=80",
+      image: "/public/Img/Index/Retail_Enterprise.png",
     },
     {
       title: "Enterprise Corporation",
@@ -65,15 +65,17 @@ const Index = () => {
           <div className="container mx-auto px-4 py-20 grid gap-12 lg:grid-cols-2 lg:items-center">
             <AnimatedSection className="space-y-6">
               <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground">About Octalpha</p>
-              <h2 className="text-4xl font-bold text-foreground">10+ Years' Experience in IT</h2>
+              <h2 className="text-4xl font-bold text-foreground">From Data Centers to Digital Transformation</h2>
               <p className="text-lg text-muted-foreground">
-                Octalpha takes every detail into account to ensure systems operate smoothly and responsively. From SAP ERP
-                implementations to modern cybersecurity programs, we architect solutions that empower digital
-                transformation and growth.
+                Octalpha Business Solutions is a UAE-based technology partner focused on enabling businesses through intelligent and secure IT solutions for the past 10 years.
+                We have helped various organizations scale faster and smarter with tailored services in IT infrastructure, cybersecurity, data center support, cloud enablement, compliance, and managed services.
               </p>
               <p className="text-lg text-muted-foreground">
-                We have successfully implemented solutions for leading retail chains, FMCG distribution companies, and food
-                chains across the UAE.
+                Backed by strategic vendor alliances and a strong local presence, we deliver high-impact, cost-effective solutions — from office IT setups and networking to complex enterprise-level integrations.
+                Our lean, expert-driven team ensures agility, accountability, and personalized service for every project
+              </p>
+              <p className="text-lg text-muted-foreground">
+                At Octalpha, we don't just supply IT — we deliver business continuity, operational efficiency, and technology-led growth.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild variant="hero" className="group">
@@ -89,7 +91,7 @@ const Index = () => {
             </AnimatedSection>
             <AnimatedSection direction="left" className="relative">
               <img
-                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=900&q=80"
+                src="\public\Img\Index\About.png"
                 alt="Digital transformation collaboration"
                 className="w-full rounded-3xl border border-border shadow-strong object-cover"
                 loading="lazy"
