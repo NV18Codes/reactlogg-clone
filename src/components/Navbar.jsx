@@ -35,7 +35,7 @@ export const Navbar = () => {
           subItems: [
             { name: "VAPT", path: "/services/cybersecurity/vapt" },
             { name: "VCISO", path: "/services/cybersecurity/vciso" },
-            { name: "Risk Assessment", path: "/services/cybersecurity/risk-assessment" },
+            { name: "Due Diligence", path: "/services/cybersecurity/due-diligence" },
           ]
         },
       ]

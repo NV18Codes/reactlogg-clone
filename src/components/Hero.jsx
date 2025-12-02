@@ -34,6 +34,22 @@ const slides = [
     subtitle: "Reliable Support When You Need It.",
     description: "Let our dedicated team handle your IT operations so you can focus on driving your core business forward.",
     cta: "Get Support"
+  },
+  {
+    id: 5,
+    video: "/Img/Hero/Hero5.mp4", // Replace with Hero5.mp4 if available
+    title: "Intelligent GRC Automation",
+    subtitle: "Governance Meets AI Innovation.",
+    description: "Unified risk management solutions that leverage artificial intelligence to automate compliance workflows and visualize security posture.",
+    cta: "Discover GRC"
+  },
+  {
+    id: 6,
+    video: "/Img/Hero/Hero6.mp4", // Replace with Hero6.mp4 if available
+    title: "Enterprise Digital Strategy",
+    subtitle: "Consulting. Infrastructure. Agility.",
+    description: "Align your technology with business goals through expert consulting, ensuring operational resilience and long-term strategic advantage.",
+    cta: "View Strategies"
   }
 ];
 
@@ -71,12 +87,7 @@ export const Hero = () => {
             <source src={slide.video} type="video/mp4" />
           </video>
           
-          {/* REMOVED THE GRADIENT DIV HERE 
-             Previously: <div className="absolute inset-0 bg-gradient-to-t from-background ..." />
-             This removal fixes the white fog at the bottom.
-          */}
-          
-          {/* Optional: Simple dark overlay if you need text contrast, but no "White" fade */}
+          {/* Dark Overlay for text contrast */}
           <div className="absolute inset-0 bg-black/40" />
         </div>
       ))}
@@ -86,15 +97,6 @@ export const Hero = () => {
         
         <div className="max-w-4xl mx-auto text-center space-y-8">
           
-          {/* <div>
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/5 backdrop-blur-md rounded-full border border-white/10 hover:bg-white/10 transition-colors cursor-default">
-              <MapPin className="h-4 w-4 text-cyan-400" />
-              <span className="text-sm text-white/90">
-                Business Central Towers, Dubai Internet City, UAE
-              </span>
-            </div>
-          </div> */}
-
           <div>
             <div className="space-y-4 min-h-[180px] flex flex-col justify-center">
               <p className="text-sm uppercase tracking-[0.42em] text-cyan-300/80 font-semibold transition-all duration-300">

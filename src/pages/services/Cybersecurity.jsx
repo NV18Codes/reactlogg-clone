@@ -10,32 +10,32 @@ const Cybersecurity = () => {
     {
       icon: Shield,
       title: "Network Security",
-      items: ["Next-Generation Firewalls (NGFW)", "IDS/IPS Systems", "Secure Web Gateways", "Network Access Control (NAC)", "VPN Solutions"],
+      description: "Deploy Next-Generation Firewalls (NGFW), IDS/IPS Systems, and Secure Web Gateways. Includes Network Access Control (NAC) and robust VPN solutions to secure your perimeter.",
     },
     {
       icon: Smartphone,
       title: "Endpoint Security",
-      items: ["Endpoint Protection Platforms (EPP)", "Endpoint Detection & Response (EDR)", "Mobile Device Management (MDM)", "Anti-Virus / Anti-Malware", "Application Whitelisting"],
+      description: "Protect every device with Endpoint Protection Platforms (EPP) and Detection & Response (EDR). Covers Mobile Device Management (MDM), anti-malware, and application whitelisting.",
     },
     {
       icon: Lock,
       title: "Identity & Access Management",
-      items: ["Single Sign-On (SSO)", "Multi-Factor Authentication (MFA)", "Privileged Access Management (PAM)", "Directory Services", "Password Vaults"],
+      description: "Secure user access with Single Sign-On (SSO), Multi-Factor Authentication (MFA), and Privileged Access Management (PAM). Includes Directory Services and Password Vaults.",
     },
     {
       icon: Eye,
       title: "Threat Detection & Response",
-      items: ["SIEM Solutions", "Extended Detection & Response (XDR)", "Managed Detection & Response (MDR)", "Threat Intelligence Platforms", "Incident Response (SOAR)"],
+      description: "Detect and neutralize threats using SIEM Solutions, XDR, and MDR. We leverage Threat Intelligence Platforms and automated Incident Response (SOAR) for rapid action.",
     },
     {
       icon: Cloud,
       title: "Cloud Security",
-      items: ["Cloud Access Security Broker (CASB)", "Cloud Security Posture Management (CSPM)", "Cloud Workload Protection (CWPP)", "Web Application Firewall (WAF)", "Zero Trust Network Access (ZTNA)"],
+      description: "Safeguard cloud assets with CASB, CSPM, and CWPP. Features Web Application Firewalls (WAF) and Zero Trust Network Access (ZTNA) for modern workloads.",
     },
     {
       icon: AlertTriangle,
       title: "Security Assessment",
-      items: ["VAPT Services", "Risk Assessment", "Security Audits", "Compliance Testing", "Penetration Testing"],
+      description: "Evaluate your posture with VAPT Services, risk assessments, and security audits. Includes rigorous compliance testing and comprehensive penetration testing.",
     },
   ];
 
@@ -65,26 +65,19 @@ const Cybersecurity = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
-              <div className="grid md:grid-cols-2 gap-8 mb-16">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <AnimatedSection key={service.title} delay={index * 0.05}>
-                      <Card className="p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 border-l-4 border-l-accent">
-                        <div className="flex items-start gap-4 mb-6">
-                          <div className="p-3 bg-gradient-primary rounded-lg shadow-md">
-                            <Icon className="h-8 w-8 text-primary-foreground" />
-                          </div>
-                          <h3 className="text-2xl font-bold text-foreground pt-2">{service.title}</h3>
+                    <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
+                      <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
+                          <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
-                        <ul className="space-y-2">
-                          {service.items.map((item) => (
-                            <li key={item} className="flex items-start gap-2 text-muted-foreground">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
+                        <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed flex-grow">
+                          {service.description}
+                        </p>
                       </Card>
                     </AnimatedSection>
                   );

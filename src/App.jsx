@@ -16,6 +16,9 @@ import DigitalCollaboration from "./pages/services/DigitalCollaboration";
 import ManagedITSolutions from "./pages/services/ManagedITSolutions";
 import CustomerJourney from "./pages/services/CustomerJourney";
 import ERP from "./pages/services/ERP";
+import VAPT from "./pages/services/VAPT";
+import VCISO from "./pages/services/VCISO";
+import DueDiligence from "./pages/services/DueDiligence";
 import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -40,6 +43,10 @@ const App = () => (
           <Route path="/services/managed-it-solutions" element={<ManagedITSolutions />} />
           <Route path="/services/customer-journey" element={<CustomerJourney />} />
           <Route path="/services/erp" element={<ERP />} />
+
+          <Route path="/services/cybersecurity/vapt" element={<VAPT />} />
+          <Route path="/services/cybersecurity/vciso" element={<VCISO />} />
+          <Route path="/services/cybersecurity/due-diligence" element={<DueDiligence />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

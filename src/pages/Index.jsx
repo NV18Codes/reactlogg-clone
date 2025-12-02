@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, PhoneCall } from "lucide-react";
 import { Hero } from "@/components/Hero";
@@ -8,6 +9,65 @@ import { PageTransition } from "@/components/animations/PageTransition";
 import { MainLayout } from "@/components/layout/MainLayout";
 
 const Index = () => {
+  // Generate array for 30 vendor images
+  const vendorCount = 30;
+  const vendors = Array.from({ length: vendorCount }, (_, i) => i + 1);
+
+  // --- CAROUSEL REFS & STATE ---
+  const carouselRef = useRef(null);
+  const [isDown, setIsDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  // --- INFINITE SCROLL & DRAG LOGIC ---
+  useEffect(() => {
+    const slider = carouselRef.current;
+    let animationFrameId;
+
+    const animate = () => {
+      // If user is NOT dragging, we auto-scroll
+      if (!isDown && slider) {
+        slider.scrollLeft += 1; // Adjust speed (0.5 for slower, 2 for faster)
+
+        // Infinite Loop Logic:
+        // If we have scrolled past the first set of items (halfway), reset to 0
+        if (slider.scrollLeft >= slider.scrollWidth / 2) {
+          slider.scrollLeft = 0;
+        }
+      }
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    // Start the animation loop
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [isDown]);
+
+  // --- DRAG HANDLERS ---
+  const handleMouseDown = (e) => {
+    setIsDown(true);
+    setStartX(e.pageX - carouselRef.current.offsetLeft);
+    setScrollLeft(carouselRef.current.scrollLeft);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDown(false);
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current.offsetLeft;
+    const walk = (x - startX) * 2; // *2 determines drag speed
+    carouselRef.current.scrollLeft = scrollLeft - walk;
+  };
+
+  // --- PAGE CONTENT DATA ---
   const capabilityHighlights = [
     {
       title: "Minified Technology",
@@ -123,6 +183,52 @@ const Index = () => {
                 </AnimatedSection>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* --- DRAGGABLE INFINITE CLIENT CAROUSEL --- */}
+        <section className="py-20 bg-background border-b border-border/40 overflow-hidden select-none">
+          <div className="container mx-auto px-4 mb-12 text-center">
+            <AnimatedSection>
+              {/* STYLE UPDATE: Matched exact style of 'About' and 'Success Stories' headers */}
+              <p className="text-sm uppercase tracking-[0.35em] text-muted-foreground mb-3">
+                Our Clients
+              </p>
+              <h2 className="text-4xl font-bold text-foreground">
+                Trusted by leading organizations
+              </h2>
+            </AnimatedSection>
+          </div>
+
+          <div className="relative w-full group">
+            <div
+              ref={carouselRef}
+              className="flex items-center gap-12 md:gap-20 overflow-x-hidden cursor-grab active:cursor-grabbing no-scrollbar"
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+              style={{
+                width: "100%",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {[...vendors, ...vendors].map((num, index) => (
+                <div key={index} className="flex-shrink-0 w-32 md:w-40 h-24 flex items-center justify-center">
+                  <img
+                    draggable={false}
+                    src={`/Img/vendors/vendor-${num}.png`}
+                    alt={`Client ${num}`}
+                    className="max-w-full max-h-full object-contain transition-transform duration-300 hover:scale-110"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+            
+            {/* Fade effect on edges */}
+            <div className="absolute top-0 left-0 h-full w-20 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none"></div>
           </div>
         </section>
 

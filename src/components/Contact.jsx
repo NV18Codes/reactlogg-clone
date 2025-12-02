@@ -63,7 +63,7 @@ export const Contact = () => {
           </div>
 
           {/* CTA Card */}
-          <AnimatedSection delay={0.2}>
+          {/* <AnimatedSection delay={0.2}>
             <Card className="mt-12 p-8 md:p-12 bg-gradient-hero shadow-strong text-center relative overflow-hidden">
               <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent_65%)]" />
               <div className="relative">
@@ -87,7 +87,7 @@ export const Contact = () => {
                 </div>
               </div>
             </Card>
-          </AnimatedSection>
+          </AnimatedSection> */}
         </div>
       </div>
     </section>
