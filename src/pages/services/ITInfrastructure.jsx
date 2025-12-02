@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Server, HardDrive, Network, Cable, Database, Layers } from "lucide-react";
+import { Server, HardDrive, Router, Cable, Building2, Layers } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -18,7 +18,7 @@ const ITInfrastructure = () => {
       description: "Scalable storage solutions with high availability and data protection.",
     },
     {
-      icon: Network,
+      icon: Router, // Changed from Network to Router for specificity
       title: "Networking",
       description: "Robust network infrastructure with switches, routers, and security appliances.",
     },
@@ -28,7 +28,7 @@ const ITInfrastructure = () => {
       description: "Professional cabling infrastructure for seamless connectivity.",
     },
     {
-      icon: Database,
+      icon: Building2, // Changed from Database to Building2 to represent the physical 'Building'
       title: "Data Center Building",
       description: "Complete data center design and implementation including racks, UPS, cooling, and monitoring.",
     },
@@ -72,15 +72,12 @@ const ITInfrastructure = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    // CHANGED: Added 'className="h-full"' to ensure the wrapper fills the grid cell
                     <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
-                      {/* CHANGED: Added 'h-full flex flex-col' to ensure Card fills height */}
                       <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        {/* Added 'flex-grow' to description to push content evenly if needed */}
                         <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                       </Card>
                     </AnimatedSection>

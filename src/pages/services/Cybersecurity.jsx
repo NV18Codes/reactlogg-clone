@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Lock, Eye, Cloud, Smartphone, AlertTriangle } from "lucide-react";
+import { GlobeLock, Laptop, Fingerprint, Siren, CloudCog, ClipboardList } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,32 +8,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const Cybersecurity = () => {
   const services = [
     {
-      icon: Shield,
+      icon: GlobeLock, // Global Network Security
       title: "Network Security",
       description: "Deploy Next-Generation Firewalls (NGFW), IDS/IPS Systems, and Secure Web Gateways. Includes Network Access Control (NAC) and robust VPN solutions to secure your perimeter.",
     },
     {
-      icon: Smartphone,
+      icon: Laptop, // Endpoint = Devices (Laptop)
       title: "Endpoint Security",
       description: "Protect every device with Endpoint Protection Platforms (EPP) and Detection & Response (EDR). Covers Mobile Device Management (MDM), anti-malware, and application whitelisting.",
     },
     {
-      icon: Lock,
+      icon: Fingerprint, // Identity = Fingerprint
       title: "Identity & Access Management",
       description: "Secure user access with Single Sign-On (SSO), Multi-Factor Authentication (MFA), and Privileged Access Management (PAM). Includes Directory Services and Password Vaults.",
     },
     {
-      icon: Eye,
+      icon: Siren, // Threat Detection = Alert/Siren
       title: "Threat Detection & Response",
       description: "Detect and neutralize threats using SIEM Solutions, XDR, and MDR. We leverage Threat Intelligence Platforms and automated Incident Response (SOAR) for rapid action.",
     },
     {
-      icon: Cloud,
+      icon: CloudCog, // Cloud Security = Cloud + Gears
       title: "Cloud Security",
       description: "Safeguard cloud assets with CASB, CSPM, and CWPP. Features Web Application Firewalls (WAF) and Zero Trust Network Access (ZTNA) for modern workloads.",
     },
     {
-      icon: AlertTriangle,
+      icon: ClipboardList, // Assessment = Checklist
       title: "Security Assessment",
       description: "Evaluate your posture with VAPT Services, risk assessments, and security audits. Includes rigorous compliance testing and comprehensive penetration testing.",
     },

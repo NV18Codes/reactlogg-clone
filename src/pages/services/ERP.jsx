@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Database, TrendingUp, Users, Package, DollarSign, BarChart } from "lucide-react";
+import { Calculator, UserCheck, Truck, LineChart, BrainCircuit, Factory, AppWindow } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,32 +8,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const ERP = () => {
   const modules = [
     {
-      icon: DollarSign,
+      icon: Calculator, // Financial = Accounting tool
       title: "Financial Management",
       description: "Complete financial operations including accounting, budgeting, and reporting.",
     },
     {
-      icon: Users,
+      icon: UserCheck, // HR = Verified User/Employee
       title: "Human Resources",
       description: "HR management, payroll, employee records, and performance tracking.",
     },
     {
-      icon: Package,
+      icon: Truck, // Supply Chain = Logistics/Transport
       title: "Supply Chain Management",
       description: "Inventory, procurement, warehouse management, and logistics.",
     },
     {
-      icon: TrendingUp,
+      icon: LineChart, // Sales = Growth Chart
       title: "Sales & CRM",
       description: "Sales automation, customer relationship management, and pipeline tracking.",
     },
     {
-      icon: BarChart,
+      icon: BrainCircuit, // BI = Intelligence/AI
       title: "Business Intelligence",
       description: "Real-time analytics, dashboards, and data-driven decision making.",
     },
     {
-      icon: Database,
+      icon: Factory, // Manufacturing = Factory Building
       title: "Manufacturing",
       description: "Production planning, quality control, and shop floor management.",
     },
@@ -95,13 +95,13 @@ const ERP = () => {
                 {modules.map((module, index) => {
                   const Icon = module.icon;
                   return (
-                    <AnimatedSection key={module.title} delay={index * 0.05}>
-                      <Card className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
-                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md">
+                    <AnimatedSection key={module.title} delay={index * 0.05} className="h-full">
+                      <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
+                        <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{module.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed">{module.description}</p>
+                        <p className="text-muted-foreground leading-relaxed flex-grow">{module.description}</p>
                       </Card>
                     </AnimatedSection>
                   );
@@ -109,7 +109,7 @@ const ERP = () => {
               </div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-16">
-                <AnimatedSection>
+                <AnimatedSection className="h-full">
                   <Card className="p-8 bg-muted/50 h-full">
                     <h3 className="text-2xl font-bold text-foreground mb-6">Key Benefits</h3>
                     <ul className="space-y-3">
@@ -123,13 +123,13 @@ const ERP = () => {
                   </Card>
                 </AnimatedSection>
 
-                <AnimatedSection>
+                <AnimatedSection className="h-full">
                   <Card className="p-8 bg-muted/50 h-full">
                     <h3 className="text-2xl font-bold text-foreground mb-6">ERP Solutions We Implement</h3>
                     <ul className="space-y-4">
                       {solutions.map((solution) => (
                         <li key={solution} className="flex items-center gap-3 p-3 bg-card rounded-lg">
-                          <Database className="h-5 w-5 text-accent" />
+                          <AppWindow className="h-5 w-5 text-accent" />
                           <span className="text-foreground font-medium">{solution}</span>
                         </li>
                       ))}

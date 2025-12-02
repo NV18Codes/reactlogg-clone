@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageSquare, Users, Target, TrendingUp, Smartphone, BarChart } from "lucide-react";
+import { Compass, PencilRuler, Puzzle, Activity, Smile, PieChart, Waypoints } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,25 +8,25 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const CustomerJourney = () => {
   const phases = [
     {
-      icon: Target,
+      icon: Compass, // Discovery = Finding direction
       title: "Discovery & Consultation",
       description: "We begin by understanding your business needs, challenges, and goals through detailed consultations.",
       steps: ["Initial consultation", "Requirements gathering", "Technology assessment", "Solution design"],
     },
     {
-      icon: Users,
+      icon: PencilRuler, // Planning = Drafting/Design tools
       title: "Planning & Design",
       description: "Our experts create a comprehensive roadmap tailored to your specific requirements.",
       steps: ["Architecture design", "Budget planning", "Timeline development", "Risk assessment"],
     },
     {
-      icon: MessageSquare,
+      icon: Puzzle, // Implementation = Fitting pieces together
       title: "Implementation & Integration",
       description: "Seamless deployment of solutions with minimal disruption to your operations.",
       steps: ["Project kickoff", "System deployment", "Integration testing", "User training"],
     },
     {
-      icon: TrendingUp,
+      icon: Activity, // Support = Monitoring Pulse/Activity
       title: "Support & Optimization",
       description: "Ongoing support and continuous improvement to ensure optimal performance.",
       steps: ["24/7 monitoring", "Proactive maintenance", "Performance optimization", "Regular updates"],
@@ -35,17 +35,17 @@ const CustomerJourney = () => {
 
   const services = [
     {
-      icon: Smartphone,
+      icon: Smile, // CX = Happiness/Satisfaction
       title: "Customer Experience Solutions",
       description: "Digital transformation solutions focused on enhancing customer interactions and satisfaction.",
     },
     {
-      icon: BarChart,
+      icon: PieChart, // Analytics = Data Viz (Distinct from BarChart)
       title: "Analytics & Insights",
       description: "Data-driven insights to understand and improve customer journey touchpoints.",
     },
     {
-      icon: Users,
+      icon: Waypoints, // Omnichannel = Connecting multiple points/channels
       title: "Omnichannel Integration",
       description: "Seamless customer experience across all digital and physical channels.",
     },
@@ -86,9 +86,7 @@ const CustomerJourney = () => {
                 {phases.map((phase, index) => {
                   const Icon = phase.icon;
                   return (
-                    // CHANGED: Added h-full
                     <AnimatedSection key={phase.title} delay={index * 0.05} className="h-full">
-                      {/* CHANGED: Added h-full flex flex-col */}
                       <Card className="h-full flex flex-col p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="flex items-start gap-4 mb-6">
                           <div className="p-3 bg-gradient-primary rounded-lg shadow-md shrink-0">
@@ -99,7 +97,6 @@ const CustomerJourney = () => {
                             <h3 className="text-2xl font-bold text-foreground">{phase.title}</h3>
                           </div>
                         </div>
-                        {/* CHANGED: Added flex-grow */}
                         <p className="text-muted-foreground mb-6 flex-grow">{phase.description}</p>
                         <ul className="space-y-2">
                           {phase.steps.map((step) => (
@@ -124,15 +121,12 @@ const CustomerJourney = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    // CHANGED: Added h-full
                     <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
-                      {/* CHANGED: Added h-full flex flex-col */}
                       <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        {/* CHANGED: Added flex-grow */}
                         <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                       </Card>
                     </AnimatedSection>

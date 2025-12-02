@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Cloud, TrendingUp, Shield, Zap, Database, RefreshCw } from "lucide-react";
+import { Cloud, Rocket, ArrowLeftRight, Lock, DatabaseZap, BoxSelect } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,32 +8,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const CloudSolutions = () => {
   const services = [
     {
-      icon: Cloud,
+      icon: Cloud, // Core Cloud Service
       title: "Multi-Cloud Support",
       description: "Expert services for Azure, AWS, Oracle, and Google Cloud platforms.",
     },
     {
-      icon: TrendingUp,
+      icon: Rocket, // Optimization = Speed/Efficiency
       title: "Cost Optimization",
       description: "Right-sizing and scalability strategies to optimize cloud spending.",
     },
     {
-      icon: RefreshCw,
+      icon: ArrowLeftRight, // Migration = Moving back and forth
       title: "Cloud Migration",
       description: "Seamless migration of workloads from on-premises to cloud infrastructure.",
     },
     {
-      icon: Shield,
+      icon: Lock, // Security = Lock
       title: "Cloud Security",
       description: "Cloud-native security, backup solutions, and compliance management.",
     },
     {
-      icon: Database,
+      icon: DatabaseZap, // DR = Fast Database recovery
       title: "Disaster Recovery",
       description: "Cloud-based backup and disaster recovery solutions for business continuity.",
     },
     {
-      icon: Zap,
+      icon: BoxSelect, // Containerization = Box/Container
       title: "Containerization",
       description: "Modern application deployment using containers and orchestration.",
     },

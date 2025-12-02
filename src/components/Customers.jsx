@@ -7,11 +7,10 @@ export const Customers = () => {
   const partners = Array.from({ length: partnerCount }, (_, i) => i + 1);
 
   // CONFIGURATION: Map specific Partner IDs to their URLs
-  // I have pre-filled the two you provided. Please add the 3rd one.
   const partnerLinks = {
     1: "https://www.lockthreat.ai/",
     2: "https://smart-cjm.com/en/",
-    3: "https://timestreamgroup.com/", // <-- REPLACE THIS with the 3rd link
+    3: "https://timestreamgroup.com/",
   };
 
   return (
@@ -44,7 +43,8 @@ export const Customers = () => {
                 className={`h-24 md:h-28 flex items-center justify-center p-4 hover:shadow-lg transition-all duration-300 group border border-gray-200 bg-white dark:bg-white overflow-hidden ${linkUrl ? 'cursor-pointer hover:border-blue-400' : ''}`}
               >
                 <img 
-                  src={`/Img/partners/${num}.jpg`}
+                  // ALL FILES ARE NOW .PNG
+                  src={`/Img/partners/${num}.png`}
                   alt={`Partner ${num}`}
                   className="max-h-12 md:max-h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-110 mix-blend-multiply"
                   loading="lazy"

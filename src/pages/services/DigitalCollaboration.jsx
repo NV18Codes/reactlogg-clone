@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Video, Wifi, Phone, Users, Calendar, Smartphone } from "lucide-react";
+import { MonitorPlay, Video, PhoneForwarded, Wifi, CalendarCheck, TabletSmartphone, Check } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,32 +8,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const DigitalCollaboration = () => {
   const services = [
     {
-      icon: Video,
+      icon: MonitorPlay, // Teams Rooms = Screen/Presentation
       title: "Microsoft Teams Rooms",
       description: "Fully integrated Teams meeting rooms with advanced AV equipment and seamless collaboration.",
     },
     {
-      icon: Video,
+      icon: Video, // Zoom Rooms = Video Camera
       title: "Zoom Rooms",
       description: "Professional Zoom conference rooms with HD video, audio, and screen sharing capabilities.",
     },
     {
-      icon: Phone,
+      icon: PhoneForwarded, // PABX = Call Routing
       title: "PABX Systems",
       description: "Modern IP-based phone systems for efficient internal and external communications.",
     },
     {
-      icon: Wifi,
+      icon: Wifi, // Wi-Fi = Wireless Signal
       title: "Enterprise Wi-Fi",
       description: "High-performance wireless networks with controllers, access points, and guest management.",
     },
     {
-      icon: Calendar,
+      icon: CalendarCheck, // Booking = Calendar + Check
       title: "Smart Room Booking",
       description: "Intelligent room scheduling and resource management systems.",
     },
     {
-      icon: Smartphone,
+      icon: TabletSmartphone, // Mobile/Remote = Multiple devices
       title: "Mobile & Remote Enablement",
       description: "Solutions for mobile workforce and remote collaboration capabilities.",
     },
@@ -82,15 +82,12 @@ const DigitalCollaboration = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    // CHANGED: Added h-full
                     <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
-                      {/* CHANGED: Added h-full flex flex-col */}
                       <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        {/* CHANGED: Added flex-grow */}
                         <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
                       </Card>
                     </AnimatedSection>
@@ -106,7 +103,7 @@ const DigitalCollaboration = () => {
                   <div className="grid md:grid-cols-2 gap-4">
                     {features.map((feature) => (
                       <div key={feature} className="flex items-start gap-3">
-                        <Users className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                         <span className="text-foreground">{feature}</span>
                       </div>
                     ))}

@@ -3,11 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { 
   Briefcase, 
-  ScrollText, 
-  ShieldCheck, 
-  GraduationCap, 
-  ClipboardCheck, 
-  Presentation, 
+  Landmark, 
+  Scale, 
+  BookOpen, 
+  FileSearch, 
+  Crown, 
   CheckCircle2 
 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
@@ -17,32 +17,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const VCISO = () => {
   const services = [
     {
-      icon: Briefcase,
+      icon: Briefcase, // Expertise/Executive role
       title: "On-Demand CISO Expertise",
       description: "Leverage flexible engagement models with no full-time salary overhead. We provide scalable security leadership and access to multiple experts for cost-effective executive guidance.",
     },
     {
-      icon: ScrollText,
+      icon: Landmark, // Governance/Structure
       title: "Security Strategy & Governance",
       description: "Develop robust security strategies and policy frameworks. We design governance structures, plan security roadmaps, and provide comprehensive executive security reporting.",
     },
     {
-      icon: ShieldCheck,
+      icon: Scale, // Compliance/Law/Balance
       title: "Risk Management & Compliance",
       description: "Expertly manage risk mitigation and ensure alignment with ISO, PCI, and GDPR. We handle regulatory requirements, audit preparation, and third-party risk management.",
     },
     {
-      icon: GraduationCap,
+      icon: BookOpen, // Training/Knowledge
       title: "Security Awareness & Training",
       description: "Conduct employee security training and phishing simulation programs. Includes tailored awareness campaigns, executive briefings, and incident response training.",
     },
     {
-      icon: ClipboardCheck,
+      icon: FileSearch, // Audit/Review/Advisory
       title: "Advisory & Audit Support",
       description: "Benefit from ongoing security advisory, internal audits, and vendor assessments. We conduct regular program reviews to ensure continuous improvement.",
     },
     {
-      icon: Presentation,
+      icon: Crown, // Board Level/Leadership/Top Tier
       title: "Board-Level Guidance",
       description: "Receive executive reporting and professional board presentations. We act as your trusted partner for strategic planning and effective risk communication.",
     },

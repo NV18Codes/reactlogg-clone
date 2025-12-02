@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Headphones, Clock, Shield, TrendingUp, Users, CheckCircle2 } from "lucide-react";
+import { Headset, Wrench, RefreshCcw, BarChart4, UserCog, FileSignature, CheckCircle2 } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -8,32 +8,32 @@ import { AnimatedSection } from "@/components/animations/AnimatedSection";
 const ManagedITSolutions = () => {
   const services = [
     {
-      icon: Headphones,
+      icon: Headset, // Remote Support = Headset
       title: "Remote & Onsite Support",
       description: "24/7 technical support with quick response times from our local UAE team.",
     },
     {
-      icon: Clock,
+      icon: Wrench, // Maintenance = Wrench
       title: "Proactive Maintenance",
       description: "Regular system maintenance and patching to prevent issues before they impact your business.",
     },
     {
-      icon: Shield,
+      icon: RefreshCcw, // Backup/Restore = Refresh Cycle
       title: "Backup & DR Management",
       description: "Comprehensive backup solutions and disaster recovery planning for business continuity.",
     },
     {
-      icon: TrendingUp,
+      icon: BarChart4, // Asset Management = Chart/Tracking
       title: "IT Asset Management",
       description: "Complete IT asset and license management to control costs and ensure compliance.",
     },
     {
-      icon: Users,
+      icon: UserCog, // Expert Engineers = User + Gear
       title: "Expert Engineers",
       description: "Certified resident and in-house engineers with multi-technology expertise.",
     },
     {
-      icon: CheckCircle2,
+      icon: FileSignature, // Contracts = Signature
       title: "Annual Maintenance Contracts",
       description: "Flexible AMC options for completed IT systems with predictable costs and SLAs.",
     },
@@ -80,7 +80,7 @@ const ManagedITSolutions = () => {
                 {services.map((service, index) => {
                   const Icon = service.icon;
                   return (
-                    <AnimatedSection key={service.title} delay={index * 0.05}>
+                    <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
                       <Card className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500 h-full flex flex-col">
                         <div className="w-14 h-14 p-3 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 shadow-md flex-shrink-0">
                           <Icon className="h-8 w-8 text-primary-foreground" />
