@@ -6,6 +6,8 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import About from "./pages/About";
 import ServicesPage from "./pages/ServicesPage";
+import Blog from "./pages/Blog";
+import OctaMindAutonomous from "./pages/blogs/OctaMindAutonomous";
 import CustomersPage from "./pages/CustomersPage";
 import ContactPage from "./pages/ContactPage";
 import ITInfrastructure from "./pages/services/ITInfrastructure";
@@ -33,6 +35,8 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/blogs" element={<Blog />} />
+          <Route path="/blogs/octamind-autonomous-attacks" element={<OctaMindAutonomous />} />
           <Route path="/customers" element={<CustomersPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/services/it-infrastructure" element={<ITInfrastructure />} />
