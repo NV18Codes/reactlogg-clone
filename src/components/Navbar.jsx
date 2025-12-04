@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown, ChevronRight, Plus, Minus } from "lucide-react";
+import { Menu, X, ChevronDown, Plus, Minus } from "lucide-react";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  
+  const [desktopSubMenu, setDesktopSubMenu] = useState(null); 
   const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState("");
 
   const mainLinks = [
@@ -19,16 +21,27 @@ export const Navbar = () => {
     {
       title: "Solutions",
       items: [
-        { name: "ERP", path: "/services/erp" },
+        /* { name: "ERP", path: "/services/erp" } */,
         { name: "Cloud Solutions", path: "/services/cloud-solutions" },
         { name: "Digital Collaboration", path: "/services/digital-collaboration" },
+        { name: "Customer Journey", path: "/services/customer-journey" },
       ]
     },
     {
       title: "Services",
       items: [
-        { name: "Managed IT Solutions", path: "/services/managed-it-solutions" },
-        { name: "IT Infrastructure", path: "/services/it-infrastructure" },
+        { name: "Managed IT Services", path: "/services/managed-it-solutions" },
+        // RENAMED: IT Infrastructure -> IT Infrastructure Services
+        { name: "IT Infrastructure Services", path: "/services/it-infrastructure" },
+        { name: "Backup & Disaster Recovery Services", path: "/services/backup-and-disaster-recovery" },
+        { 
+          name: "Governance, Risk & Compliance", 
+          path: "/services/grc", 
+          subItems: [
+            { name: "Frameworks & Standards", path: "/services/grc" },
+            { name: "Automation", path: "/services/grc/automation" },
+          ]
+        },
         { 
           name: "Cybersecurity", 
           path: "/services/cybersecurity",
@@ -39,18 +52,22 @@ export const Navbar = () => {
           ]
         },
       ]
-    },
-    {
-      title: "Consulting",
-      items: [
-        { name: "GRC", path: "/services/grc" },
-        { name: "Customer Journey", path: "/services/customer-journey" },
-      ]
     }
   ];
 
   const toggleMobileSubMenu = (itemName) => {
     setMobileSubMenuOpen(mobileSubMenuOpen === itemName ? "" : itemName);
+  };
+
+  const toggleDesktopSubMenu = (e, itemName) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setDesktopSubMenu(desktopSubMenu === itemName ? null : itemName);
+  };
+
+  const handleMainMenuLeave = () => {
+    setIsServicesOpen(false);
+    setDesktopSubMenu(null);
   };
 
   return (
@@ -59,22 +76,15 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           
           {/* --- LOGO SECTION --- */}
-          {/* Added 'shrink-0' so the logo doesn't get squished */}
           <Link to="/" className="flex items-center gap-2 shrink-0 mr-4">
             <img 
               src="/1000046891-removebg-preview.png" 
               alt="Octalpha Logo" 
-              // RESPONSIVE SIZING: 
-              // Mobile: h-8 (32px)
-              // Desktop: h-10 (40px)
-              // w-auto ensures it doesn't stretch
               className="h-8 md:h-10 w-auto object-contain" 
             />
           </Link>
 
           {/* --- DESKTOP NAVIGATION --- */}
-          {/* FIX: Changed 'hidden md:flex' to 'hidden lg:flex' 
-             This keeps the menu hidden on Tablets (md) and only shows on Laptops (lg) */}
           <div className="hidden lg:flex items-center space-x-6">
             <NavLink
               to="/"
@@ -89,7 +99,7 @@ export const Navbar = () => {
             <div 
               className="relative"
               onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
+              onMouseLeave={handleMainMenuLeave}
             >
               <button
                 className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 py-4"
@@ -99,8 +109,8 @@ export const Navbar = () => {
               </button>
               
               {isServicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[750px] bg-card border border-border rounded-lg shadow-strong z-50 p-6">
-                  <div className="grid grid-cols-3 gap-8 items-start">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 w-[650px] bg-card border border-border rounded-lg shadow-strong z-50 p-6">
+                  <div className="grid grid-cols-2 gap-8 items-start">
                     {serviceCategories.map((category) => (
                       <div key={category.title} className="space-y-3">
                         <h4 className="font-semibold text-foreground text-sm border-b border-border pb-2">
@@ -109,22 +119,36 @@ export const Navbar = () => {
                         
                         <ul className="space-y-2">
                           {category.items.map((item) => (
-                            <li key={item.name} className="relative group/item">
-                              <div className="flex items-center justify-between w-full text-sm">
+                            <li key={item.name} className="relative">
+                              <div className="flex items-center w-full text-sm">
+                                {/* The Name is a Link */}
                                 <NavLink 
                                   to={item.path} 
                                   className={({ isActive }) => 
-                                    `block transition-colors ${isActive ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}`
+                                    `block transition-colors shrink-0 ${isActive ? "text-accent font-medium" : "text-muted-foreground hover:text-accent"}`
                                   }
                                 >
                                   {item.name}
                                 </NavLink>
+                                
+                                {/* Button fills the remaining space (flex-1) */}
                                 {item.subItems && (
-                                  <ChevronDown className="h-3 w-3 text-muted-foreground opacity-50 group-hover/item:text-accent" />
+                                  <button
+                                    onClick={(e) => toggleDesktopSubMenu(e, item.name)}
+                                    className="flex-1 flex items-center justify-end p-1 ml-2 text-muted-foreground hover:text-accent focus:outline-none"
+                                  >
+                                    <ChevronDown 
+                                      className={`h-3 w-3 transition-transform duration-200 ${
+                                        desktopSubMenu === item.name ? "rotate-180 text-accent" : ""
+                                      }`} 
+                                    />
+                                  </button>
                                 )}
                               </div>
-                              {item.subItems && (
-                                <div className="hidden group-hover/item:block pt-1">
+
+                              {/* Submenu Dropdown */}
+                              {item.subItems && desktopSubMenu === item.name && (
+                                <div className="pt-1 animate-in fade-in slide-in-from-top-1 duration-200">
                                   <div className="border-l border-border/50 ml-1 pl-3 space-y-1">
                                     {item.subItems.map((sub) => (
                                       <NavLink
@@ -166,8 +190,6 @@ export const Navbar = () => {
           </div>
 
           {/* --- MOBILE/TABLET MENU BUTTON --- */}
-          {/* FIX: Changed 'md:hidden' to 'lg:hidden' 
-             This ensures the Hamburger menu stays visible on Tablets/Medium screens */}
           <button
             className="lg:hidden p-2 text-foreground hover:bg-accent/10 rounded-md"
             onClick={() => setIsOpen(!isOpen)}
@@ -192,7 +214,10 @@ export const Navbar = () => {
               {/* Mobile Mega Menu Accordion */}
               <div>
                 <button
-                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsServicesOpen(!isServicesOpen);
+                  }}
                   className="text-sm font-medium text-foreground hover:text-accent transition-colors flex items-center gap-1 w-full justify-between"
                 >
                   Solutions & Services
@@ -222,6 +247,7 @@ export const Navbar = () => {
                                   <button
                                     onClick={(e) => {
                                       e.preventDefault();
+                                      e.stopPropagation();
                                       toggleMobileSubMenu(item.name);
                                     }}
                                     className="p-1"
