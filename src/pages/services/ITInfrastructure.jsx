@@ -55,7 +55,7 @@ const ITInfrastructure = () => {
           <div className="container relative z-10 mx-auto px-4">
             <AnimatedSection direction="up" className="max-w-4xl mx-auto text-center">
               <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
-                IT Infrastructure &amp; Cloud Solutions
+                IT Infrastructure Solutions
               </h1>
               <p className="text-xl text-primary-foreground/80">
                 Complete infrastructure solutions from design to implementation, ensuring business continuity and optimal

@@ -90,7 +90,7 @@ const Index = () => {
     {
       title: "24/7 Managed IT Services",
       description: "Let our dedicated team handle your IT operations so you can focus on driving your core business forward.",
-      image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=640&q=80",
+      image: "https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=640&q=80",
     },
   ];
 
