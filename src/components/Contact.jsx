@@ -1,6 +1,9 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Phone, Mail, Globe } from "lucide-react";
+import { MapPin, Phone, Mail, Share2 } from "lucide-react";
+// UPDATED: Imported FontAwesome for solid brand icons
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faFacebook, faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 
 export const Contact = () => {
@@ -12,8 +15,8 @@ export const Contact = () => {
     },
     {
       icon: Phone,
-      title: "Phone & Fax",
-      content: "Tel: +971 4 242 49201 | Fax: +971 4 242 4917",
+      title: "Phone",
+      content: "Tel: +971 5 265 43343" /* | Fax: +971 4 242 4917" */,
     },
     {
       icon: Mail,
@@ -21,9 +24,49 @@ export const Contact = () => {
       content: "info.dxb@octalpha.com",
     },
     {
-      icon: Globe,
-      title: "Website",
-      content: "www.octalpha.com",
+      icon: Share2,
+      title: "Follow Us",
+      content: (
+        // UPDATED: Increased gap to gap-6 and icon size
+        <div className="flex items-center gap-6 mt-2">
+          <a 
+            href="https://www.linkedin.com/company/octalpha/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-[#0077b5] transition-colors hover:scale-110 duration-200"
+            aria-label="LinkedIn"
+          >
+            <FontAwesomeIcon icon={faLinkedin} className="h-6 w-6" />
+          </a>
+          <a 
+            href="https://www.facebook.com/octalphabusinesssolutions" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-[#1877F2] transition-colors hover:scale-110 duration-200"
+            aria-label="Facebook"
+          >
+            <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
+          </a>
+          <a 
+            href="https://www.instagram.com/octalpha_/?hl=en" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-[#E4405F] transition-colors hover:scale-110 duration-200"
+            aria-label="Instagram"
+          >
+            <FontAwesomeIcon icon={faInstagram} className="h-6 w-6" />
+          </a>
+          <a 
+            href="https://x.com/OctalphaS" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors hover:scale-110 duration-200"
+            aria-label="X (Twitter)"
+          >
+            <FontAwesomeIcon icon={faXTwitter} className="h-6 w-6" />
+          </a>
+        </div>
+      ),
     },
   ];
 
@@ -53,7 +96,7 @@ export const Contact = () => {
                       </div>
                       <div>
                         <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                        <p className="text-muted-foreground">{item.content}</p>
+                        <div className="text-muted-foreground">{item.content}</div>
                       </div>
                     </div>
                   </Card>
@@ -61,33 +104,6 @@ export const Contact = () => {
               );
             })}
           </div>
-
-          {/* CTA Card */}
-          {/* <AnimatedSection delay={0.2}>
-            <Card className="mt-12 p-8 md:p-12 bg-gradient-hero shadow-strong text-center relative overflow-hidden">
-              <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent_65%)]" />
-              <div className="relative">
-                <h3 className="text-3xl font-bold text-primary-foreground mb-4">
-                  Ready to Transform Your IT Infrastructure?
-                </h3>
-                <p className="text-xl text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-                  Contact us today for a consultation and discover how Octalpha can help your business grow.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="cta" size="lg">
-                    Schedule a Consultation
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="bg-card/50 backdrop-blur-sm border-primary-foreground/20 text-primary-foreground hover:bg-card/70"
-                  >
-                    Request a Quote
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </AnimatedSection> */}
         </div>
       </div>
     </section>

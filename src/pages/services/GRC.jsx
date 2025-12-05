@@ -46,8 +46,9 @@ const GRC = () => {
       <PageTransition>
         <section className="relative overflow-hidden bg-gradient-hero pt-32 pb-20">
           <div className="absolute inset-0">
+            {/* UPDATED BACKGROUND: Abstract Tech/Security/Structure */}
             <img
-              src="https://images.unsplash.com/photo-1526543366210-86973e390117?auto=format&fit=crop&w=1600&q=80"
+              src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1600&q=80"
               alt="Governance and compliance review"
               className="h-full w-full object-cover opacity-25"
               loading="lazy"
@@ -79,15 +80,12 @@ const GRC = () => {
                 {pillars.map((pillar, index) => {
                   const Icon = pillar.icon;
                   return (
-                    // CHANGED: Added className="h-full" to wrapper
                     <AnimatedSection key={pillar.title} delay={index * 0.05} className="h-full">
-                      {/* CHANGED: Added h-full flex flex-col to Card */}
                       <Card className="h-full flex flex-col p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
                         <h3 className="text-2xl font-bold text-foreground mb-4">{pillar.title}</h3>
-                        {/* CHANGED: Added flex-grow to description to align bottom content */}
                         <p className="text-muted-foreground mb-6 flex-grow">{pillar.description}</p>
                         <div className="space-y-2">
                           {pillar.benefits.map((benefit) => (

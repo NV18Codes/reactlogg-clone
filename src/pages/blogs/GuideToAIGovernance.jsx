@@ -1,10 +1,3 @@
-/*
-  PAGE METADATA:
-  Title: The CISO’s Guide to AI Governance | OctAlpha
-  Meta Description: AI is transforming businesses — but without proper governance, it becomes a major risk. Learn the CISO’s guide to AI governance, key risks, essential steps, and how OctAlpha helps you build secure, compliant, and trustworthy AI practices.
-  Keywords: AI governance, AI compliance, CISO guide, responsible AI, AI risk management, enterprise AI policy, AI governance framework, OctAlpha
-*/
-
 import { Link } from "react-router-dom";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
@@ -38,7 +31,7 @@ const sections = [
         detail: "Preventing biased decisions and inaccurate outputs before they reach customers.",
       },
     ],
-    // IMAGE: Modern Corporate Strategy / Innovation
+    // IMAGE 1: Modern Corporate Strategy / Innovation
     image: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80",
     alt: "Strategic business planning and governance",
   },
@@ -67,7 +60,9 @@ const sections = [
         detail: "Lack of documentation makes passing compliance audits nearly impossible.",
       },
     ],
-    // IMAGE REMOVED as requested
+    // NEW IMAGE: Abstract red/dark data visualization representing risk
+    image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1200&q=80",
+    alt: "Digital risk and data fragmentation",
   },
   {
     heading: "The Playbook: 4 Steps to a Strong Framework",
@@ -94,7 +89,7 @@ const sections = [
         detail: "Unite Security, Legal, HR, and Ops to align AI with business ethics.",
       },
     ],
-    // IMAGE: Blueprints / Structure / Planning
+    // IMAGE 3: Blueprints / Structure / Planning
     image: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80",
     alt: "Cross-functional team collaboration",
   },
@@ -123,7 +118,9 @@ const sections = [
         detail: "As your AI adoption expands, our governance systems scale effortlessly with you.",
       },
     ],
-    // IMAGE REMOVED as requested
+    // NEW IMAGE: Futuristic clean network/shield representing safety and future
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    alt: "Global digital security network",
   },
 ];
 
@@ -133,7 +130,6 @@ const GuideToAIGovernance = () => {
       <PageTransition>
         {/* --- HERO SECTION --- */}
         <section className="relative isolate overflow-hidden bg-gradient-to-br from-background via-background to-muted/30">
-          {/* UPDATED HERO IMAGE: Abstract AI/Network Structure */}
           <img
             src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80"
             alt="AI Governance Abstract"
@@ -164,10 +160,10 @@ const GuideToAIGovernance = () => {
           <div className="container mx-auto px-4 py-16 space-y-16">
             {sections.map((section, index) => (
               <AnimatedSection key={section.heading} delay={index * 0.04}>
-                {/* FORCED STACKED LAYOUT: Info Top, Image Bottom */}
-                <Card className="flex flex-col gap-0 overflow-hidden rounded-[32px] border border-border/70 bg-card shadow-sm hover:shadow-md transition-shadow">
+                {/* GRID LAYOUT: Matched OctaMindAutonomous style (Text Left, Image Right) */}
+                <Card className="grid gap-0 overflow-hidden rounded-[32px] border border-border/70 bg-card lg:grid-cols-2 shadow-sm hover:shadow-md transition-shadow">
                   
-                  {/* Top: Text Content */}
+                  {/* Left Column: Text Content */}
                   <div className="p-8 md:p-12 space-y-8 flex flex-col justify-center">
                     <div className="flex items-center gap-3">
                         <span className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-xs font-bold text-primary">
@@ -210,22 +206,20 @@ const GuideToAIGovernance = () => {
                     )}
                   </div>
                   
-                  {/* Bottom: Image (Consistent Height) - RENDERED ONLY IF IMAGE EXISTS */}
-                  {section.image && (
-                    <div className="relative w-full h-[300px] md:h-[450px] bg-muted/20">
-                      <img 
-                        src={section.image} 
-                        alt={section.alt} 
-                        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105" 
-                        loading="lazy" 
-                      />
-                    </div>
-                  )}
+                  {/* Right Column: Image */}
+                  <div className="relative h-full min-h-[400px] w-full bg-muted/20">
+                    <img 
+                      src={section.image} 
+                      alt={section.alt} 
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 hover:scale-105" 
+                      loading="lazy" 
+                    />
+                  </div>
                 </Card>
               </AnimatedSection>
             ))}
 
-            {/* --- COLLABORATOR LINK / INTERLUDE (NEW SECTION) --- */}
+            {/* --- COLLABORATOR LINK / INTERLUDE --- */}
             <AnimatedSection className="py-8">
               <Card className="relative overflow-hidden border border-primary/20 bg-primary/5 p-8 md:p-12">
                 <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faFacebook, faInstagram, faXTwitter } from "@fortawesome/free-brands-svg-icons";
 
 export const Footer = () => {
   return (
     <footer className="bg-gradient-primary py-12 border-t border-border">
       <div className="container mx-auto px-4">
-        {/* Updated grid to 4 columns for better organization */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        {/* Grid Layout:
+           - Mobile: 1 column
+           - Tablet: 2 columns 
+           - Desktop: 5 columns (Brand | Company | Solutions | Services | Contact)
+        */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-8">
           
-          {/* Column 1: Brand Info */}
-          <div>
+          {/* 1. Brand Info & Socials */}
+          <div className="lg:col-span-1 flex flex-col items-start">
             <Link to="/" className="inline-block mb-4">
               <img 
                 src="/octalpha-logo-Photoroom.png" 
@@ -16,12 +22,52 @@ export const Footer = () => {
                 className="h-10 w-auto object-contain"
               />
             </Link>
-            <p className="text-primary-foreground/70 text-sm leading-relaxed">
+            <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Your trusted technology partner for end-to-end IT solutions in the UAE and GCC region.
             </p>
+            
+            {/* Added Social Media Icons */}
+            <div className="flex items-center gap-4">
+              <a 
+                href="https://www.linkedin.com/company/octalpha/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-accent transition-colors hover:scale-110 duration-200"
+                aria-label="LinkedIn"
+              >
+                <FontAwesomeIcon icon={faLinkedin} className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.facebook.com/octalphabusinesssolutions" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-accent transition-colors hover:scale-110 duration-200"
+                aria-label="Facebook"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://www.instagram.com/octalpha_/?hl=en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-accent transition-colors hover:scale-110 duration-200"
+                aria-label="Instagram"
+              >
+                <FontAwesomeIcon icon={faInstagram} className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://x.com/OctalphaS" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary-foreground/70 hover:text-accent transition-colors hover:scale-110 duration-200"
+                aria-label="X (Twitter)"
+              >
+                <FontAwesomeIcon icon={faXTwitter} className="h-5 w-5" />
+              </a>
+            </div>
           </div>
           
-          {/* Column 2: Company Links (Matches Navbar Main Links) */}
+          {/* 2. Company Links */}
           <div>
             <h4 className="text-lg font-semibold text-primary-foreground mb-4">Company</h4>
             <ul className="space-y-2 text-sm">
@@ -53,13 +99,13 @@ export const Footer = () => {
             </ul>
           </div>
           
-          {/* Column 3: Key Solutions & Services (From Navbar Dropdown) */}
+          {/* 3. Solutions Category (Matches Navbar 'Solutions') */}
           <div>
-            <h4 className="text-lg font-semibold text-primary-foreground mb-4">Solutions & Services</h4>
+            <h4 className="text-lg font-semibold text-primary-foreground mb-4">Solutions</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/services/erp" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  ERP Solutions
+                <Link to="/services/it-infrastructure" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  IT Infrastructure
                 </Link>
               </li>
               <li>
@@ -68,29 +114,56 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/services/cybersecurity" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  Cybersecurity
+                <Link to="/services/ai-grc-automation" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  AI Powered GRC Automation
                 </Link>
               </li>
               <li>
-                <Link to="/services/it-infrastructure" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  IT Infrastructure
+                <Link to="/services/customer-journey" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  Customer Journey Management
                 </Link>
               </li>
+              <li>
+                <Link to="/services/financial-reconciliation" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  Financial Reconciliation
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/digital-collaboration" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  Digital Collaboration
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/cybersecurity" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  Cybersecurity Solutions
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* 4. Services Category (Matches Navbar 'Services') */}
+          <div>
+            <h4 className="text-lg font-semibold text-primary-foreground mb-4">Services</h4>
+            <ul className="space-y-2 text-sm">
               <li>
                 <Link to="/services/managed-it-solutions" className="text-primary-foreground/70 hover:text-accent transition-colors">
                   Managed IT Services
                 </Link>
               </li>
               <li>
+                <Link to="/services/backup-and-disaster-recovery" className="text-primary-foreground/70 hover:text-accent transition-colors">
+                  Back up & Disaster Recovery
+                </Link>
+              </li>
+              <li>
                 <Link to="/services/grc" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  GRC Consulting
+                  Governance Risk & Compliance
                 </Link>
               </li>
             </ul>
           </div>
           
-          {/* Column 4: Contact Info */}
+          {/* 5. Contact Info */}
           <div>
             <h4 className="text-lg font-semibold text-primary-foreground mb-4">Contact Info</h4>
             <ul className="space-y-3 text-sm text-primary-foreground/70">
@@ -99,7 +172,7 @@ export const Footer = () => {
                 Business Central Towers,<br />
                 Dubai Internet City, UAE
               </li>
-              <li>Tel: +971 4 242 4920</li>
+              <li>Tel: +971 5 265 43343</li>
               <li>info.dxb@octalpha.com</li>
             </ul>
           </div>

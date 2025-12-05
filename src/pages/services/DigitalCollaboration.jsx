@@ -1,6 +1,14 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MonitorPlay, Video, PhoneForwarded, Wifi, CalendarCheck, TabletSmartphone, Check } from "lucide-react";
+import { 
+  MonitorPlay, 
+  Video, 
+  PhoneForwarded, 
+  CalendarCheck, 
+  TabletSmartphone, 
+  Check,
+  Projector // Imported Projector for Interactive Screens
+} from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
@@ -23,9 +31,9 @@ const DigitalCollaboration = () => {
       description: "Modern IP-based phone systems for efficient internal and external communications.",
     },
     {
-      icon: Wifi, // Wi-Fi = Wireless Signal
-      title: "Enterprise Wi-Fi",
-      description: "High-performance wireless networks with controllers, access points, and guest management.",
+      icon: Projector, // NEW: Unique icon for Interactive Screens
+      title: "All-in-One Interactive Screens",
+      description: "Advanced touch-enabled displays combining digital whiteboarding, wireless casting, and video conferencing.",
     },
     {
       icon: CalendarCheck, // Booking = Calendar + Check

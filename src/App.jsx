@@ -22,6 +22,9 @@ import ERP from "./pages/services/ERP";
 import VAPT from "./pages/services/VAPT";
 import VCISO from "./pages/services/VCISO";
 import DueDiligence from "./pages/services/DueDiligence";
+import BackupDisasterRecovery from "./pages/services/BackupDisasterRecovery";
+import FinancialReconciliation from "./pages/services/FinancialReconciliation";
+import AIGRCAutomation from "./pages/services/AIGRCAutomation";
 import { ScrollToTop } from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
@@ -49,10 +52,12 @@ const App = () => (
           <Route path="/services/managed-it-solutions" element={<ManagedITSolutions />} />
           <Route path="/services/customer-journey" element={<CustomerJourney />} />
           <Route path="/services/erp" element={<ERP />} />
-
+          <Route path="/services/financial-reconciliation" element={<FinancialReconciliation />} />
+          <Route path="/services/ai-grc-automation" element={<AIGRCAutomation />} />
           <Route path="/services/cybersecurity/vapt" element={<VAPT />} />
           <Route path="/services/cybersecurity/vciso" element={<VCISO />} />
           <Route path="/services/cybersecurity/due-diligence" element={<DueDiligence />} />
+          <Route path="/services/backup-and-disaster-recovery" element={<BackupDisasterRecovery />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

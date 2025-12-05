@@ -1,53 +1,63 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Compass, PencilRuler, Puzzle, Activity, Smile, PieChart, Waypoints } from "lucide-react";
+import { 
+  Users, 
+  CalendarClock, 
+  MessageSquareQuote, 
+  BarChart3, 
+  MonitorSmartphone, 
+  MapPin, 
+  ArrowRightLeft 
+} from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 
 const CustomerJourney = () => {
-  const phases = [
+  // Replaced generic project phases with specific CJM Core Solutions
+  const solutions = [
     {
-      icon: Compass, // Discovery = Finding direction
-      title: "Discovery & Consultation",
-      description: "We begin by understanding your business needs, challenges, and goals through detailed consultations.",
-      steps: ["Initial consultation", "Requirements gathering", "Technology assessment", "Solution design"],
+      icon: Users,
+      title: "Intelligent Queue Management",
+      description: "Streamline visitor flows and reduce wait times with smart queuing systems. Manage walk-ins and appointments seamlessly to enhance the on-site experience.",
+      features: ["Virtual queuing", "Ticketless options", "Priority management", "Wait time notifications"],
     },
     {
-      icon: PencilRuler, // Planning = Drafting/Design tools
-      title: "Planning & Design",
-      description: "Our experts create a comprehensive roadmap tailored to your specific requirements.",
-      steps: ["Architecture design", "Budget planning", "Timeline development", "Risk assessment"],
+      icon: CalendarClock,
+      title: "Online Appointment Scheduling",
+      description: "Empower customers to book appointments 24/7. Balance staff workload and reduce lobby congestion by managing demand before visitors arrive.",
+      features: ["Self-service booking", "Calendar integration", "Automated reminders", "Resource allocation"],
     },
     {
-      icon: Puzzle, // Implementation = Fitting pieces together
-      title: "Implementation & Integration",
-      description: "Seamless deployment of solutions with minimal disruption to your operations.",
-      steps: ["Project kickoff", "System deployment", "Integration testing", "User training"],
+      icon: MessageSquareQuote,
+      title: "Customer Feedback & Surveys",
+      description: "Capture real-time sentiment at key touchpoints. Understand visitor satisfaction instantly to make data-driven improvements to your service delivery.",
+      features: ["Touchscreen kiosks", "SMS/Email surveys", "NPS & CSAT tracking", "Instant alert notifications"],
     },
     {
-      icon: Activity, // Support = Monitoring Pulse/Activity
-      title: "Support & Optimization",
-      description: "Ongoing support and continuous improvement to ensure optimal performance.",
-      steps: ["24/7 monitoring", "Proactive maintenance", "Performance optimization", "Regular updates"],
+      icon: MonitorSmartphone,
+      title: "Digital Signage & Guidance",
+      description: "Keep visitors informed and directed with integrated digital displays. Show queue status, promotional content, and wayfinding information in real-time.",
+      features: ["Counter displays", "Lobby overview screens", "Personalized messaging", "Multi-language support"],
     },
   ];
 
-  const services = [
+  // Replaced generic services with Advanced Capabilities/Benefits
+  const capabilities = [
     {
-      icon: Smile, // CX = Happiness/Satisfaction
-      title: "Customer Experience Solutions",
-      description: "Digital transformation solutions focused on enhancing customer interactions and satisfaction.",
+      icon: BarChart3,
+      title: "Predictive Analytics & Reporting",
+      description: "Leverage AI-driven insights to forecast visitor volume, optimize staffing levels, and identify service bottlenecks before they happen.",
     },
     {
-      icon: PieChart, // Analytics = Data Viz (Distinct from BarChart)
-      title: "Analytics & Insights",
-      description: "Data-driven insights to understand and improve customer journey touchpoints.",
+      icon: ArrowRightLeft,
+      title: "Omnichannel Flow Management",
+      description: "Connect the digital and physical worlds. Ensure a consistent journey whether a customer interacts via mobile, web, or in-person.",
     },
     {
-      icon: Waypoints, // Omnichannel = Connecting multiple points/channels
-      title: "Omnichannel Integration",
-      description: "Seamless customer experience across all digital and physical channels.",
+      icon: MapPin,
+      title: "Multi-Location Centralization",
+      description: "Manage complex branch networks from a single dashboard. Standardize processes and compare performance across all your locations.",
     },
   ];
 
@@ -56,9 +66,10 @@ const CustomerJourney = () => {
       <PageTransition>
         <section className="relative overflow-hidden bg-gradient-hero pt-32 pb-20">
           <div className="absolute inset-0">
+            {/* Background: Flow / Movement / People theme */}
             <img
-              src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1600&q=80"
-              alt="Customer journey planning"
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1600&q=80"
+              alt="Customer journey flow"
               className="h-full w-full object-cover opacity-25"
               loading="lazy"
             />
@@ -66,9 +77,12 @@ const CustomerJourney = () => {
           <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top,white,transparent_60%)]" />
           <div className="container relative z-10 mx-auto px-4">
             <AnimatedSection direction="up" className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">Customer Journey</h1>
+              <h1 className="text-5xl md:text-6xl font-bold text-primary-foreground mb-6">
+                Customer Journey Management
+              </h1>
               <p className="text-xl text-primary-foreground/80">
-                Your success story from consultation to ongoing partnership.
+                Optimize every interaction from the first click to the final visit. 
+                Manage flows, reduce waiting, and exceed expectations.
               </p>
             </AnimatedSection>
           </div>
@@ -77,32 +91,33 @@ const CustomerJourney = () => {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-6xl mx-auto">
+              
+              {/* Core Solutions Grid (Previously Phases) */}
               <AnimatedSection className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-foreground mb-4">Your Journey With Octalpha</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-4">Core Flow Solutions</h2>
                 <div className="w-24 h-1 bg-gradient-accent mx-auto" />
               </AnimatedSection>
 
               <div className="grid md:grid-cols-2 gap-8 mb-16">
-                {phases.map((phase, index) => {
-                  const Icon = phase.icon;
+                {solutions.map((solution, index) => {
+                  const Icon = solution.icon;
                   return (
-                    <AnimatedSection key={phase.title} delay={index * 0.05} className="h-full">
+                    <AnimatedSection key={solution.title} delay={index * 0.05} className="h-full">
                       <Card className="h-full flex flex-col p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="flex items-start gap-4 mb-6">
                           <div className="p-3 bg-gradient-primary rounded-lg shadow-md shrink-0">
                             <Icon className="h-8 w-8 text-primary-foreground" />
                           </div>
                           <div>
-                            <div className="text-sm font-semibold text-accent mb-1">Phase {index + 1}</div>
-                            <h3 className="text-2xl font-bold text-foreground">{phase.title}</h3>
+                            <h3 className="text-2xl font-bold text-foreground">{solution.title}</h3>
                           </div>
                         </div>
-                        <p className="text-muted-foreground mb-6 flex-grow">{phase.description}</p>
-                        <ul className="space-y-2">
-                          {phase.steps.map((step) => (
-                            <li key={step} className="flex items-center gap-2">
+                        <p className="text-muted-foreground mb-6 flex-grow">{solution.description}</p>
+                        <ul className="grid grid-cols-2 gap-2">
+                          {solution.features.map((feature) => (
+                            <li key={feature} className="flex items-center gap-2">
                               <div className="w-1.5 h-1.5 bg-accent rounded-full shrink-0" />
-                              <span className="text-sm text-muted-foreground">{step}</span>
+                              <span className="text-sm text-muted-foreground">{feature}</span>
                             </li>
                           ))}
                         </ul>
@@ -112,40 +127,42 @@ const CustomerJourney = () => {
                 })}
               </div>
 
+              {/* Advanced Capabilities Grid (Previously Services) */}
               <AnimatedSection className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-foreground mb-4">Customer-Centric Solutions</h2>
+                <h2 className="text-3xl font-bold text-foreground mb-4">Advanced Capabilities</h2>
                 <div className="w-24 h-1 bg-gradient-accent mx-auto" />
               </AnimatedSection>
 
               <div className="grid md:grid-cols-3 gap-8 mb-16">
-                {services.map((service, index) => {
-                  const Icon = service.icon;
+                {capabilities.map((item, index) => {
+                  const Icon = item.icon;
                   return (
-                    <AnimatedSection key={service.title} delay={index * 0.05} className="h-full">
+                    <AnimatedSection key={item.title} delay={index * 0.05} className="h-full">
                       <Card className="h-full flex flex-col p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-500">
                         <div className="p-3 bg-gradient-primary rounded-lg inline-block mb-4 shadow-md w-fit">
                           <Icon className="h-8 w-8 text-primary-foreground" />
                         </div>
-                        <h3 className="text-xl font-bold text-foreground mb-3">{service.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed flex-grow">{service.description}</p>
+                        <h3 className="text-xl font-bold text-foreground mb-3">{item.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed flex-grow">{item.description}</p>
                       </Card>
                     </AnimatedSection>
                   );
                 })}
               </div>
 
+              {/* CTA Section */}
               <AnimatedSection>
                 <Card className="p-8 md:p-12 bg-gradient-primary text-center relative overflow-hidden">
                   <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,white,transparent_65%)]" />
                   <div className="relative">
                     <h2 className="text-3xl font-bold text-primary-foreground mb-6">
-                      Start Your Journey With Us
+                      Transform Your Visitor Experience
                     </h2>
                     <p className="text-lg text-primary-foreground/90 mb-8 max-w-3xl mx-auto">
-                      Experience a partnership built on trust, expertise, and a commitment to your success.
+                      Join organizations worldwide in creating efficient, pleasant, and measurable customer journeys.
                     </p>
                     <Button variant="cta" size="lg">
-                      Begin Your Journey
+                      Schedule a Consultation
                     </Button>
                   </div>
                 </Card>

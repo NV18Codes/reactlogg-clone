@@ -12,7 +12,7 @@ const quickContacts = [
     description: "Schedule a discovery call to scope projects, timelines, and commercials.",
     icon: <Phone className="h-6 w-6" />,
     action: "Book a call",
-    href: "tel:+97142424920",
+    href: "tel:+971526543343",
   },
   {
     title: "Request a proposal",
