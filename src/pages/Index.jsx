@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, PhoneCall } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight, faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import { Hero } from "@/components/Hero";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -70,15 +71,14 @@ const Index = () => {
   // --- PAGE CONTENT DATA ---
   const capabilityHighlights = [
     {
-      title: "Minified Technology",
-      description:
-        "Enterprise-grade infrastructure designed to be resilient, efficient, and scalable from day one.",
+      title: "One SLA, Zero Fragmentation",
+      description: "Unified project management, architecture, support, billing, and governance across every engagement.",
       image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=640&q=80",
     },
     {
-      title: "Personalized Service",
+      title: "End-to-End Technology Support",
       description:
-        "Lean, expert-driven teams dedicated to tailoring every engagement around your business outcomes.",
+        "Solutions for every department—from IT and Finance to Compliance, Marketing, and C-level stakeholders.",
       image: "/Img/Index/Personalised_Service.jpg",
     },
     {
@@ -88,9 +88,8 @@ const Index = () => {
       image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=640&q=80",
     },
     {
-      title: "Better Pricing",
-      description:
-        "Strong vendor alliances and procurement expertise keep projects on schedule and within budget.",
+      title: "24/7 Managed IT Services",
+      description: "Let our dedicated team handle your IT operations so you can focus on driving your core business forward.",
       image: "https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=640&q=80",
     },
   ];
@@ -139,9 +138,9 @@ const Index = () => {
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild variant="hero" className="group">
-                  <Link to="/about">
+                  <Link to="/about" className="flex items-center gap-2">
                     Learn More
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <FontAwesomeIcon icon={faArrowRight} className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </Link>
                 </Button>
                 <Button asChild variant="outline">
@@ -271,10 +270,14 @@ const Index = () => {
                     we will tailor a roadmap aligned with your goals.
                   </p>
                 </div>
-                <Button asChild size="lg" variant="cta" className="group">
-                  <Link to="/contact">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-[#00d2ff] to-[#00a6ff] hover:opacity-90 text-white font-semibold rounded-full px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+                >
+                  <Link to="/contact" className="flex items-center gap-3">
                     Schedule a call
-                    <PhoneCall className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                    <FontAwesomeIcon icon={faPhoneVolume} className="h-4 w-4" />
                   </Link>
                 </Button>
               </div>

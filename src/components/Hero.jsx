@@ -8,60 +8,75 @@ const slides = [
     video: "/Img/Hero/Hero1.mp4",
     title: "Your End-to-End Technology Partner",
     subtitle: "Empowering Connections. Driving the Future.",
-    description: "From Data Centers to Digital Transformation. We help enterprises scale faster with secure, intelligent IT infrastructure.",
-    cta: "Contact Us"
+    description:
+      "From data centers to digital transformation. We help enterprises scale faster with secure, intelligent IT infrastructure.",
+    cta: "Contact Us",
   },
   {
     id: 2,
-    video: "/Img/Hero/Hero2.mp4",
-    title: "Advanced Cybersecurity & Compliance",
-    subtitle: "Secure Your Assets. Protect Your Future.",
-    description: "Comprehensive threat detection, GRC compliance, and network security solutions tailored for modern enterprises.",
-    cta: "View Security Plans"
+    video: "https://cdn.pixabay.com/video/2025/09/13/303881_tiny.mp4",
+    title: "AI-Ready IT Infrastructure",
+    subtitle: "Modernize. Automate. Orchestrate.",
+    description:
+      "Build resilient hybrid foundations with AI-ready architecture, automated observability, and zero-downtime operations.",
+    cta: "Explore Infrastructure",
   },
   {
     id: 3,
-    video: "/Img/Hero/Hero3.mp4",
-    title: "Seamless Cloud Transformation",
-    subtitle: "Scalable. Flexible. Efficient.",
-    description: "Migrate, modernize, and manage your workloads with our expert Azure and AWS cloud enablement services.",
-    cta: "Explore Cloud"
+    video: "/Img/Hero/Hero2.mp4",
+    title: "Advanced Cybersecurity & Compliance",
+    subtitle: "Secure Your Assets. Protect Your Future.",
+    description:
+      "Comprehensive threat detection, GRC compliance, and network security solutions tailored for modern enterprises.",
+    cta: "View Security Plans",
   },
   {
     id: 4,
-    video: "/Img/Hero/Hero4.mp4",
-    title: "24/7 Managed IT Services",
-    subtitle: "Reliable Support When You Need It.",
-    description: "Let our dedicated team handle your IT operations so you can focus on driving your core business forward.",
-    cta: "Get Support"
+    video: "/Img/Hero/Hero3.mp4",
+    title: "Seamless Cloud Transformation",
+    subtitle: "Scalable. Flexible. Efficient.",
+    description:
+      "Migrate, modernize, and manage your workloads with our expert Azure and AWS cloud enablement services.",
+    cta: "Explore Cloud",
   },
   {
     id: 5,
-    video: "/Img/Hero/Hero5.mp4", // Replace with Hero5.mp4 if available
-    title: "Intelligent GRC Automation",
-    subtitle: "Governance Meets AI Innovation.",
-    description: "Unified risk management solutions that leverage artificial intelligence to automate compliance workflows and visualize security posture.",
-    cta: "Discover GRC"
+    video: "/Img/Hero/Hero4.mp4",
+    title: "AI Smart Customer Journey Management",
+    subtitle: "Personalized Journeys. Predictable Outcomes.",
+    description:
+      "Activate AI-driven customer journey orchestration that unifies marketing, sales, and service touchpoints with measurable ROI.",
+    cta: "Get Support",
   },
   {
     id: 6,
-    video: "/Img/Hero/Hero6.mp4", // Replace with Hero6.mp4 if available
-    title: "Enterprise Digital Strategy",
-    subtitle: "Consulting. Infrastructure. Agility.",
-    description: "Align your technology with business goals through expert consulting, ensuring operational resilience and long-term strategic advantage.",
-    cta: "View Strategies"
-  }
+    video: "/Img/Hero/Hero5.mp4",
+    title: "AI-Based GRC Automation",
+    subtitle: "Governance Meets AI Innovation.",
+    description:
+      "Deploy autonomous GRC automation that documents controls, predicts risk, and keeps regulators satisfied in real time.",
+    cta: "Discover GRC",
+  },
+  {
+    id: 7,
+    video: "https://cdn.pixabay.com/video/2024/03/15/204306-923909642_tiny.mp4",
+    title: "Financial Reconciliation Automation",
+    subtitle: "Close your books with AI speed and precision.",
+    description:
+      "AI-driven reconciliation matches ledgers, payment gateways, and ERP data in minutes—flagging anomalies and generating audit-ready evidence automatically.",
+    cta: "Optimize Finance",
+  },
 ];
 
 export const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 8000);
-    return () => clearInterval(timer);
-  }, []);
+    return () => clearTimeout(timer);
+  }, [currentSlide]);
 
   const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
   const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown, Plus, Minus } from "lucide-react";
 
 export const Navbar = () => {
@@ -78,9 +77,9 @@ export const Navbar = () => {
           {/* --- LOGO SECTION --- */}
           <Link to="/" className="flex items-center gap-2 shrink-0 mr-4">
             <img 
-              src="/1000046891-removebg-preview.png" 
+              src="/octalpha-logo-Photoroom.png" 
               alt="Octalpha Logo" 
-              className="h-8 md:h-10 w-auto object-contain" 
+              className="h-10 w-auto object-contain" 
             />
           </Link>
 
@@ -184,9 +183,6 @@ export const Navbar = () => {
               </NavLink>
             ))}
 
-            <Button variant="hero" size="sm">
-              Get Started
-            </Button>
           </div>
 
           {/* --- MOBILE/TABLET MENU BUTTON --- */}
@@ -303,9 +299,6 @@ export const Navbar = () => {
                 </NavLink>
               ))}
               
-              <Button variant="hero" size="sm" className="w-full mt-4">
-                Get Started
-              </Button>
             </div>
           </div>
         )}
