@@ -42,7 +42,7 @@ export const Navbar = () => {
       title: "Services",
       items: [
         { name: "Managed IT services", path: "/services/managed-it-solutions" },
-        { name: "Backup & Disaster Recovery Services", path: "/services/backup-and-disaster-recovery" },
+        { name: "Back up & Disaster Recovery Services", path: "/services/backup-and-disaster-recovery" },
         { name: "Governance Risk & compliance", path: "/services/grc" },
       ]
     }

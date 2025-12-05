@@ -140,7 +140,7 @@ export const Footer = () => {
               </li>
             </ul>
           </div>
-
+          {/* REMOVE THIS COMMENT LATER ADDED TO CHANGE STATE FOR GIT PUSH */}
           {/* 4. Services Category (Matches Navbar 'Services') */}
           <div>
             <h4 className="text-lg font-semibold text-primary-foreground mb-4">Services</h4>
@@ -152,7 +152,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/services/backup-and-disaster-recovery" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  Backup & Disaster Recovery Services
+                  Back up & Disaster Recovery Services
                 </Link>
               </li>
               <li>
