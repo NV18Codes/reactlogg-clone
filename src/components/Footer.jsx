@@ -152,7 +152,7 @@ export const Footer = () => {
               </li>
               <li>
                 <Link to="/services/backup-and-disaster-recovery" className="text-primary-foreground/70 hover:text-accent transition-colors">
-                  Back up & Disaster Recovery
+                  Backup & Disaster Recovery Services
                 </Link>
               </li>
               <li>

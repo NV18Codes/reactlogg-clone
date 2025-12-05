@@ -21,7 +21,7 @@ export const Navbar = () => {
     {
       title: "Solutions",
       items: [
-        { name: "IT infrastructure solutions", path: "/services/it-infrastructure" },
+        { name: "IT Infrastructure Solutions", path: "/services/it-infrastructure" },
         { name: "Cloud Solutions", path: "/services/cloud-solutions" },
         { name: "AI Powered GRC Automation", path: "/services/ai-grc-automation" },
         { name: "Customer Journey Management", path: "/services/customer-journey" },
@@ -42,7 +42,7 @@ export const Navbar = () => {
       title: "Services",
       items: [
         { name: "Managed IT services", path: "/services/managed-it-solutions" },
-        { name: "Back up & disaster recovery", path: "/services/backup-and-disaster-recovery" },
+        { name: "Backup & Disaster Recovery Services", path: "/services/backup-and-disaster-recovery" },
         { name: "Governance Risk & compliance", path: "/services/grc" },
       ]
     }
