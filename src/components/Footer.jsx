@@ -11,7 +11,7 @@ export const Footer = () => {
           <div>
             <Link to="/" className="inline-block mb-4">
               <img 
-                src="/1000046891-removebg-preview.png" 
+                src="/octalpha-logo-Photoroom.png" 
                 alt="Octalpha Business Solutions" 
                 className="h-10 w-auto object-contain"
               />

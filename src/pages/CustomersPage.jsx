@@ -1,33 +1,12 @@
-import { BriefcaseBusiness, Building, Globe } from "lucide-react";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { PageTransition } from "@/components/animations/PageTransition";
 import { AnimatedSection } from "@/components/animations/AnimatedSection";
 import { Customers } from "@/components/Customers";
 import { Card } from "@/components/ui/card";
-
-const caseStudies = [
-  {
-    company: "Retail Enterprise",
-    sector: "Multi-country retail chain",
-    result:
-      "Built HQ data centers for 160+ stores with DR sites, virtualization, backup and DR, WLAN, Exchange Server, UPS/EMS, and EDR—backed by a 5-year AMC.",
-    icon: <BriefcaseBusiness className="h-6 w-6" />,
-  },
-  {
-    company: "Enterprise Corporation",
-    sector: "Regional conglomerate",
-    result:
-      "vCISO engagement for 2+ years covering VAPT, data center revamp, DR site, virtualization, networking, UPS/EMS, and compliance-driven risk assessments.",
-    icon: <Building className="h-6 w-6" />,
-  },
-  {
-    company: "Security-Focused Organization",
-    sector: "Critical services",
-    result:
-      "Delivered PAM, OPSWAT sanitization, Fortinet SIEM/NAC/Analyzer, ManageEngine UEM & MDM, data center power, CCTV networking, and a 6-year AMC.",
-    icon: <Globe className="h-6 w-6" />,
-  },
-];
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPhoneVolume, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const CustomersPage = () => {
   return (
@@ -62,26 +41,34 @@ const CustomersPage = () => {
 
         <section className="bg-muted/30 py-20">
           <div className="container mx-auto px-4">
-            <AnimatedSection className="mb-12 text-center max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">Success stories</h2>
-              <p className="text-lg text-muted-foreground">
-                A glimpse into how we co-create value with customers across the region.
-              </p>
+            <AnimatedSection>
+              <Card className="overflow-hidden rounded-[32px] bg-gradient-to-r from-[#031c3a] via-[#06356a] to-[#0852a4] text-white p-10 md:p-14 shadow-strong">
+                <div className="grid gap-8 md:grid-cols-[1.2fr,0.8fr] items-center">
+                  <div className="space-y-4">
+                    <p className="text-xs uppercase tracking-[0.4em] text-white/60">Need guidance?</p>
+                    <h2 className="text-3xl md:text-4xl font-semibold leading-tight">
+                      Talk with our consultants today
+                    </h2>
+                    <p className="text-base md:text-lg text-white/80">
+                      Whether you’re planning a cloud migration, strengthening cybersecurity posture, or rolling out ERP,
+                      we’ll tailor a roadmap aligned with your goals.
+                    </p>
+                  </div>
+                  <div className="flex flex-col md:items-end">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-gradient-to-r from-[#00d2ff] to-[#00a6ff] hover:opacity-90 text-white font-semibold rounded-full px-8 py-6 shadow-lg hover:shadow-xl transition-all"
+                    >
+                      <Link to="/contact" className="flex items-center gap-3">
+                        Schedule a call
+                        <FontAwesomeIcon icon={faPhoneVolume} className="h-4 w-4" />
+                      </Link>
+                    </Button>
+                  </div>
+                </div>
+              </Card>
             </AnimatedSection>
-            <div className="grid gap-8 md:grid-cols-3">
-              {caseStudies.map((item, index) => (
-                <AnimatedSection key={item.company} delay={index * 0.1}>
-                  <Card className="p-8 bg-card border-border/70 hover:shadow-xl transition-all">
-                    <div className="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-6">
-                      {item.icon}
-                    </div>
-                    <p className="text-sm uppercase tracking-wider text-muted-foreground mb-2">{item.sector}</p>
-                    <h3 className="text-xl font-semibold mb-3">{item.company}</h3>
-                    <p className="text-muted-foreground leading-relaxed">{item.result}</p>
-                  </Card>
-                </AnimatedSection>
-              ))}
-            </div>
           </div>
         </section>
       </PageTransition>
